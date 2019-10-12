@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import { TodoList } from './components/todoList';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todos: []
+    };
+  }
+  
   render() {
+    const { todos } = this.state;
     return (
       <div className="App">
-        so and then something else
+        <TodoList todos={todos}/>
       </div>
     );
   }
