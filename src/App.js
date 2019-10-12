@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { TodoList } from './components/todoList';
+import TodoList from './components/todoList';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      todos: ['hello', 'hello', 'hello']
+      todos: [
+        {text: 'hello', id: Math.PI * Math.random()}, 
+        {text: 'hello', id: Math.PI * Math.random()}, 
+        {text: 'hello', id: Math.PI * Math.random()}, 
+      ]
     };
   }
   
