@@ -4,7 +4,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        something else comon bitch
+        something else bitch
       </div>
     );
   }
