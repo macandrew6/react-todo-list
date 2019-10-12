@@ -7,20 +7,47 @@ class App extends Component {
     super(props);
 
     this.state = {
+      todo: {},
       todos: [
         {text: 'take out garbage', id: Math.PI * Math.random()}, 
         {text: 'do laundry', id: Math.PI * Math.random()}, 
         {text: 'fix laptop', id: Math.PI * Math.random()}, 
       ]
     };
+
+    this.updateTodoInput = this.updateTodoInput.bind(this);
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  updateTodoInput(e) {
+    let todo = Object.assign({},this.state.todo);
+    todo.text = e.target.value;
+    todo.id = Math.PI * Math.random();
+
+    this.setState({
+      todo
+    });
+  }
+
+  addTodo(e) {
+    e.preventDefault();
+    let todos = [...this.state.todos, this.state.todo];
+
+    this.setState({
+      todos
+    });
   }
   
   render() {
-    const { todos } = this.state;
+    const { todos, todo } = this.state;
+    console.log(todo);
     return (
       <div className="App">
         <TodoList todos={todos}/>
-        <TodoInput />
+        <TodoInput 
+          updateTodoInput={this.updateTodoInput} 
+          todo={todo}
+          addTodo={this.addTodo}/>
       </div>
     );
   }

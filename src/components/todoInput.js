@@ -1,10 +1,14 @@
 import React from 'react';
 
-const TodoInput = () => {
+const TodoInput = ({updateTodoInput, todo, addTodo}) => {
+  
   return (
     <div>
-      <form >
-        <input type="text" placeholder="...type todo here"/>
+      <form onSubmit={(e) => addTodo(e)}>
+        <input 
+          onChange={updateTodoInput} 
+          type="text" 
+          placeholder="...type todo here"/>
         <button type="submit">Submit Todo</button>
       </form>
     </div>
