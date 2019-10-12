@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoList from './components/todoList';
+import TodoInput from './components/todoInput';
 
 class App extends Component {
   constructor(props) {
@@ -7,9 +8,9 @@ class App extends Component {
 
     this.state = {
       todos: [
-        {text: 'hello', id: Math.PI * Math.random()}, 
-        {text: 'hello', id: Math.PI * Math.random()}, 
-        {text: 'hello', id: Math.PI * Math.random()}, 
+        {text: 'take out garbage', id: Math.PI * Math.random()}, 
+        {text: 'do laundry', id: Math.PI * Math.random()}, 
+        {text: 'fix laptop', id: Math.PI * Math.random()}, 
       ]
     };
   }
@@ -19,6 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <TodoList todos={todos}/>
+        <TodoInput />
       </div>
     );
   }
