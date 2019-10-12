@@ -1,7 +1,7 @@
 import React from 'react';
 import { TodoListItem } from './todoListItem';
 
-const TodoList = ({todos}) => {
+const TodoList = ({ todos }) => {
   return (
     <div>
       {

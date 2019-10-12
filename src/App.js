@@ -6,7 +6,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      todos: []
+      todos: ['hello', 'hello', 'hello']
     };
   }
   
