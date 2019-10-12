@@ -19,6 +19,11 @@ class App extends Component {
     this.addTodo = this.addTodo.bind(this);
   }
 
+  componentDidMount() {
+    const todos = localStorage.getItem('todos');
+    const savedTodos = JSON.parse(todos);
+  }
+
   updateTodoInput(e) {
     let todo = Object.assign({},this.state.todo);
     todo.text = e.target.value;
