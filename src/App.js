@@ -34,6 +34,7 @@ class App extends Component {
     let todos = [...this.state.todos, this.state.todo];
 
     this.setState({
+      todo: {},
       todos
     });
   }

@@ -8,6 +8,7 @@ const TodoInput = ({updateTodoInput, todo, addTodo}) => {
         <input 
           onChange={updateTodoInput} 
           type="text" 
+          value={todo.text}
           placeholder="...type todo here"/>
         <button type="submit">Submit Todo</button>
       </form>
