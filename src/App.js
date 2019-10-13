@@ -38,14 +38,16 @@ class App extends Component {
     });
   }
 
-  addTodo(e) {
+  async addTodo(e) {
     e.preventDefault();
     let todos = [...this.state.todos, this.state.todo];
 
-    this.setState({
+    await this.setState({
       todo: {},
       todos
     });
+    
+    localStorage.setItem('todos', JSON.stringify(todos));
   }
   
   render() {
