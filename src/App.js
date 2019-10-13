@@ -8,11 +8,7 @@ class App extends Component {
 
     this.state = {
       todo: {},
-      todos: [
-        {text: 'take out garbage', id: Math.PI * Math.random()}, 
-        {text: 'do laundry', id: Math.PI * Math.random()}, 
-        {text: 'fix laptop', id: Math.PI * Math.random()}, 
-      ]
+      todos: []
     };
 
     this.updateTodoInput = this.updateTodoInput.bind(this);
@@ -21,11 +17,14 @@ class App extends Component {
 
   componentDidMount() {
     const todos = localStorage.getItem('todos');
-    const savedTodos = JSON.parse(todos);
-    
-    this.setState({
-      todos: savedTodos
-    });
+    if (todos) {
+      const savedTodos = JSON.parse(todos);
+      this.setState({
+        todos: savedTodos
+      });
+    } else {
+      console.log('no todos');
+    }
   }
 
   updateTodoInput(e) {
@@ -38,20 +37,21 @@ class App extends Component {
     });
   }
 
-  async addTodo(e) {
+  addTodo(e) {
     e.preventDefault();
     let todos = [...this.state.todos, this.state.todo];
 
-    await this.setState({
-      todo: {},
+    this.setState({
+      todo: {text: ''},
       todos
-    });
-    
-    localStorage.setItem('todos', JSON.stringify(todos));
+    }, localStorage.setItem('todos', JSON.stringify(todos)));
+
   }
   
   render() {
     const { todos, todo } = this.state;
+    if (!todos) return null;
+
     console.log(todo);
     return (
       <div className="App">
