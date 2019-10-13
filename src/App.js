@@ -23,6 +23,9 @@ class App extends Component {
     const todos = localStorage.getItem('todos');
     const savedTodos = JSON.parse(todos);
     
+    this.setState({
+      todos: savedTodos
+    });
   }
 
   updateTodoInput(e) {
