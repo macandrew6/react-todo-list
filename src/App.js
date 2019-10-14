@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      todo: {},
+      todo: {text: '', id: performance.now()},
       todos: []
     };
 
@@ -30,7 +30,7 @@ class App extends Component {
   updateTodoInput(e) {
     let todo = Object.assign({},this.state.todo);
     todo.text = e.target.value;
-    todo.id = Math.PI * Math.random();
+    todo.id = performance.now();
 
     this.setState({
       todo
@@ -45,12 +45,10 @@ class App extends Component {
       todo: {text: ''},
       todos
     }, localStorage.setItem('todos', JSON.stringify(todos)));
-
   }
   
   render() {
     const { todos, todo } = this.state;
-    if (!todos) return null;
 
     console.log(todo);
     return (
