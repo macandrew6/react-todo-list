@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 export default class TodoListItem extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      
+    };
+  }
+  
   render() {
     const { todo, deleteTodo, id } = this.props;
 
