@@ -28,8 +28,14 @@ class App extends Component {
     }
   }
 
-  deleteTodo() {
+  deleteTodo(id) {
+    console.log('delete', id);
+    const todos = Object.assign({}, this.state.todos);
+    const filteredTodos = todos.filter(todo => todo.id !== id);
 
+    this.setState({
+      todos: filteredTodos
+    }, localStorage.setItem('todos', JSON.stringify(todos)));
   }
 
   updateTodoInput(e) {
@@ -55,7 +61,7 @@ class App extends Component {
   render() {
     const { todos, todo } = this.state;
 
-    console.log(todo);
+    console.log(todos);
     return (
       <div className="App">
         <TodoList todos={todos} deleteTodo={this.deleteTodo}/>

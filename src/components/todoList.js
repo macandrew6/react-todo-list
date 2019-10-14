@@ -8,7 +8,8 @@ const TodoList = ({ todos, deleteTodo }) => {
         todos.map((todo) => {
           return (
             <TodoListItem 
-              key={todo.id} 
+              key={todo.id}
+              id={todo.id} 
               todo={todo} 
               deleteTodo={deleteTodo}/>
           );
