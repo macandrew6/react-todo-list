@@ -5,10 +5,14 @@ export default class TodoListItem extends Component {
     super();
 
     this.state = {
-      
+      todoText: ''
     };
   }
   
+  editTodo() {
+    
+  }
+
   render() {
     const { todo, deleteTodo, id } = this.props;
 
