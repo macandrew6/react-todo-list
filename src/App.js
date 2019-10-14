@@ -13,6 +13,7 @@ class App extends Component {
 
     this.updateTodoInput = this.updateTodoInput.bind(this);
     this.addTodo = this.addTodo.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +26,10 @@ class App extends Component {
     } else {
       console.log('no todos');
     }
+  }
+
+  deleteTodo() {
+
   }
 
   updateTodoInput(e) {
@@ -53,7 +58,7 @@ class App extends Component {
     console.log(todo);
     return (
       <div className="App">
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} deleteTodo={this.deleteTodo}/>
         <TodoInput 
           updateTodoInput={this.updateTodoInput} 
           todo={todo}
