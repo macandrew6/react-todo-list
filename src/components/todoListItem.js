@@ -10,6 +10,7 @@ export default class TodoListItem extends Component {
   }
   
   editTodo() {
+    // do something that edits todo
     
   }
 
