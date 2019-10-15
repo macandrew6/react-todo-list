@@ -64,7 +64,11 @@ class App extends Component {
     console.log(todos);
     return (
       <div className="App">
-        <TodoList todos={todos} deleteTodo={this.deleteTodo}/>
+        <TodoList 
+          todos={todos} 
+          deleteTodo={this.deleteTodo}
+          updateTodoInput={this.updateTodoInput}/>
+
         <TodoInput 
           updateTodoInput={this.updateTodoInput} 
           todo={todo}
