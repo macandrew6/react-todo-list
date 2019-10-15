@@ -14,6 +14,7 @@ class App extends Component {
     this.updateTodoInput = this.updateTodoInput.bind(this);
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
+    this.editTodo = this.editTodo.bind(this);
   }
 
   componentDidMount() {
@@ -29,13 +30,27 @@ class App extends Component {
   }
 
   deleteTodo(id) {
-    console.log('delete', id);
     const todos = JSON.parse(JSON.stringify(this.state.todos));
-    const filteredTodos = todos.filter(todo => todo.id !== id);
+    const updatedTodos = todos.filter(todo => todo.id !== id);
 
     this.setState({
-      todos: filteredTodos
-    }, localStorage.setItem('todos', JSON.stringify(filteredTodos)));
+      todos: updatedTodos
+    }, localStorage.setItem('todos', JSON.stringify(updatedTodos)));
+  }
+
+  editTodo(text, id) {
+    const todos = JSON.parse(JSON.stringify(this.state.todos));
+    console.log(text, id);
+    // bug lies here
+    todos.forEach(todo => {
+      if (todo.id === id) {
+        todo.text = text;
+      }
+    });
+
+    this.setState({
+      todos: todos
+    }, localStorage.setItem('todos', JSON.stringify(todos)));
   }
 
   updateTodoInput(e) {
@@ -66,7 +81,8 @@ class App extends Component {
       <div className="App">
         <TodoList 
           todos={todos} 
-          deleteTodo={this.deleteTodo}/>
+          deleteTodo={this.deleteTodo}
+          editTodo={this.editTodo}/>
 
         <TodoInput 
           updateTodoInput={this.updateTodoInput} 

@@ -4,3 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+.todo-item {
+  display: flex;
+}
+
+.edit-todo-form input {
+  width: 300px;
+}

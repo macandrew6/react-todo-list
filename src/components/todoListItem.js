@@ -5,11 +5,12 @@ export default class TodoListItem extends Component {
     super(props);
 
     this.state = {
-      todoText: this.props.todo.text
+      todoText: this.props.todo.text,
+      id: this.props.todo.id
     };
   }
   
-  handleEditInput(e) {
+  handleEditInputChange(e) {
     let value = e.target.value;
     this.setState({
       todoText: value
@@ -18,29 +19,29 @@ export default class TodoListItem extends Component {
 
   handleSubmitEdit(e) {
     e.preventDefault();
+    this.props.editTodo(this.state.todoText, this.state.id);
   }
 
   editTodo() {
-    // do something that edits todo
-    console.log('im here baby', this.props.todo.text);
     return (
-      <form onSubmit={e => this.handleSubmitEdit(e)}>
+      <form 
+        className="edit-todo-form"
+        onSubmit={e => this.handleSubmitEdit(e)}>
         <input 
           type="text" 
-          value={this.props.todo.text}
-          onChange={e => this.handleEditInput(e)}/>
+          value={this.state.todoText}
+          onChange={e => this.handleEditInputChange(e)}/>
         <button type="submit">Edit</button>
       </form>
     );
   }
 
   render() {
-    const { todoText } = this.state;
     const { deleteTodo, id } = this.props;
 
     return (
-      <div>
-        <div onClick={() => this.editTodo()}>{todoText}</div>
+      <div className="todo-item">
+        <div>{this.editTodo()}</div>
         <button onClick={() => deleteTodo(id)}>Delete</button>
       </div>
     );
