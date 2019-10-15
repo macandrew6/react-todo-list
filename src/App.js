@@ -35,22 +35,22 @@ class App extends Component {
 
     this.setState({
       todos: updatedTodos
-    }, localStorage.setItem('todos', JSON.stringify(updatedTodos)));
+    }, (state) => localStorage.setItem('todos', JSON.stringify(state.todos)));
   }
 
   editTodo(text, id) {
     const todos = JSON.parse(JSON.stringify(this.state.todos));
-    console.log(text, id);
-    // bug lies here
-    todos.forEach(todo => {
+
+    const updatedTodos = todos.map(todo => {
       if (todo.id === id) {
         todo.text = text;
-      }
+      } 
+      return todo;
     });
 
     this.setState({
-      todos: todos
-    }, localStorage.setItem('todos', JSON.stringify(todos)));
+      todos: updatedTodos
+    }, (state) => localStorage.setItem('todos', JSON.stringify(state.todos)));
   }
 
   updateTodoInput(e) {
@@ -70,13 +70,12 @@ class App extends Component {
     this.setState({
       todo: {text: ''},
       todos
-    }, localStorage.setItem('todos', JSON.stringify(todos)));
+    }, (state) => localStorage.setItem('todos', JSON.stringify(state.todos)));
   }
   
   render() {
     const { todos, todo } = this.state;
 
-    console.log(todos);
     return (
       <div className="App">
         <TodoList 

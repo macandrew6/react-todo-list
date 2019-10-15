@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TodoInput = ({updateTodoInput, todo, addTodo}) => {
-  
+  // state of todo should live here
   return (
     <div>
       <form onSubmit={(e) => addTodo(e)}>
