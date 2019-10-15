@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 export default class TodoListItem extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      todoText: ''
+      todoText: this.props.todo.text
     };
   }
   
@@ -35,11 +35,12 @@ export default class TodoListItem extends Component {
   }
 
   render() {
-    const { todo, deleteTodo, id } = this.props;
+    const { todoText } = this.state;
+    const { deleteTodo, id } = this.props;
 
     return (
       <div>
-        <div onClick={() => this.editTodo()}>{todo.text}</div>
+        <div onClick={() => this.editTodo()}>{todoText}</div>
         <button onClick={() => deleteTodo(id)}>Delete</button>
       </div>
     );
