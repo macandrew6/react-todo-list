@@ -9,11 +9,29 @@ export default class TodoListItem extends Component {
     };
   }
   
-  editTodo(e) {
-    // do something that edits todo
+  handleEditInput(e) {
+    let value = e.target.value;
     this.setState({
-      todoText: e.target.value
+      todoText: value
     });
+  }
+
+  handleSubmitEdit(e) {
+    e.preventDefault();
+  }
+
+  editTodo() {
+    // do something that edits todo
+    console.log('im here baby', this.props.todo.text);
+    return (
+      <form onSubmit={e => this.handleSubmitEdit(e)}>
+        <input 
+          type="text" 
+          value={this.props.todo.text}
+          onChange={e => this.handleEditInput(e)}/>
+        <button type="submit">Edit</button>
+      </form>
+    );
   }
 
   render() {
@@ -21,7 +39,7 @@ export default class TodoListItem extends Component {
 
     return (
       <div>
-        <div onClick={(e) => this.editTodo(e)}>{this.state.todoText ? this.state.todoText : todo.text}</div>
+        <div onClick={() => this.editTodo()}>{todo.text}</div>
         <button onClick={() => deleteTodo(id)}>Delete</button>
       </div>
     );

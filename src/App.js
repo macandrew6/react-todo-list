@@ -66,8 +66,7 @@ class App extends Component {
       <div className="App">
         <TodoList 
           todos={todos} 
-          deleteTodo={this.deleteTodo}
-          updateTodoInput={this.updateTodoInput}/>
+          deleteTodo={this.deleteTodo}/>
 
         <TodoInput 
           updateTodoInput={this.updateTodoInput} 
