@@ -79,6 +79,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h2>Todo List</h2>
         <TodoList 
           todos={todos} 
           deleteTodo={this.deleteTodo}

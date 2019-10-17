@@ -4,8 +4,20 @@ body {
   font-family: sans-serif;
 }
 
+.App h2 {
+  text-align: center;
+}
+
+.App {
+  margin: 0 auto;
+  width: 700px;
+  border: 1px solid black;
+}
+
 .todo-list {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -14,13 +26,24 @@ body {
   margin: 10px;
 }
 
+.todo-item button {
+  width: 100px;
+  padding: 5px;
+}
+
+.todo-item button:hover {
+  background: cornflowerblue;
+}
+
 .todo-input-container {
   display: flex;
-  width: 400px;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .edit-todo-form input {
   width: 300px;
+  border: none;
 }
 
