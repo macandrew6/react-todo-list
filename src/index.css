@@ -10,6 +10,7 @@ body {
 
 .App {
   margin: 0 auto;
+  padding: 20px;
   width: 700px;
   border: 1px solid black;
 }
@@ -29,6 +30,7 @@ body {
 .todo-item button {
   width: 100px;
   padding: 5px;
+  margin-right: 2px;
 }
 
 .todo-item button:hover {
