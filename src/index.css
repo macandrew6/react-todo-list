@@ -4,10 +4,23 @@ body {
   font-family: sans-serif;
 }
 
+.todo-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .todo-item {
   display: flex;
+  margin: 10px;
+}
+
+.todo-input-container {
+  display: flex;
+  width: 400px;
+  justify-content: center;
 }
 
 .edit-todo-form input {
   width: 300px;
 }
+

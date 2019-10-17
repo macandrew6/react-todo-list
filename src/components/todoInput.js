@@ -3,7 +3,7 @@ import React from 'react';
 const TodoInput = ({updateTodoInput, todo, addTodo}) => {
   // state of todo should live here
   return (
-    <div>
+    <div className="todo-input-container">
       <form onSubmit={(e) => addTodo(e)}>
         <input 
           onChange={updateTodoInput} 
