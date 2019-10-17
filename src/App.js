@@ -35,7 +35,7 @@ class App extends Component {
 
     this.setState({
       todos: updatedTodos
-    }, localStorage.setItem('todos', JSON.stringify(updatedTodos)));
+    }, () => localStorage.setItem('todos', JSON.stringify(updatedTodos)));
   }
 
   editTodo(text, id) {
@@ -50,7 +50,7 @@ class App extends Component {
 
     this.setState({
       todos: updatedTodos
-    }, localStorage.setItem('todos', JSON.stringify(updatedTodos)));  
+    }, () => localStorage.setItem('todos', JSON.stringify(updatedTodos)));  
   }
 
   updateTodoInput(e) {
@@ -71,7 +71,7 @@ class App extends Component {
     this.setState({
       todo: {text: ''},
       todos: updatedTodos
-    }, localStorage.setItem('todos', JSON.stringify(updatedTodos)));
+    }, () => localStorage.setItem('todos', JSON.stringify(updatedTodos)));
   }
   
   render() {
