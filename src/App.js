@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      todo: {text: '', id: performance.now()},
+      todo: {text: '', id: performance.now(), completed: false},
       todos: []
     };
 
@@ -57,6 +57,7 @@ class App extends Component {
     let todo = Object.assign({},this.state.todo);
     todo.text = e.target.value;
     todo.id = performance.now();
+    todo.completed = false;
 
     this.setState({
       todo
