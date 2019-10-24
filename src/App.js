@@ -78,19 +78,17 @@ class App extends Component {
     const { todos, todo } = this.state;
 
     return (
-      <div className="App-container">
-        <div className="App">
-          <h2>Todo List</h2>
-          <TodoList 
-            todos={todos} 
-            deleteTodo={this.deleteTodo}
-            editTodo={this.editTodo}/>
+      <div className="App">
+        <h2>Todo List</h2>
+        <TodoList 
+          todos={todos} 
+          deleteTodo={this.deleteTodo}
+          editTodo={this.editTodo}/>
 
-          <TodoInput 
-            updateTodoInput={this.updateTodoInput} 
-            todo={todo}
-            addTodo={this.addTodo}/>
-        </div>
+        <TodoInput 
+          updateTodoInput={this.updateTodoInput} 
+          todo={todo}
+          addTodo={this.addTodo}/>
       </div>
     );
   }
