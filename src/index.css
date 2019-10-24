@@ -1,4 +1,5 @@
 body {
+  background: darkgray;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -9,6 +10,8 @@ body {
 }
 
 .App {
+  background: black;
+  color: white;
   margin: 0 auto;
   padding: 20px;
   width: 700px;
@@ -42,6 +45,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 20px;
+}
+
+.todo-input-container  {
+
 }
 
 .edit-todo-form input {
