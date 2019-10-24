@@ -1,6 +1,8 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: darkgray;
-  margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
@@ -33,7 +35,7 @@ body {
 .todo-item button {
   width: 100px;
   padding: 5px;
-  margin-right: 2px;
+  margin: 0 2px 0 2px;
 }
 
 .todo-item button:hover {
@@ -53,6 +55,9 @@ body {
 }
 
 .edit-todo-form input {
+  height: 23px;
+  background: black;
+  color: white;
   width: 300px;
   border: none;
 }
